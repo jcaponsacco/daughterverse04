@@ -1,0 +1,204 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Daughterverse</title>
+
+  <!-- Site-wide styles (keep this if you have global rules here) -->
+  <link rel="stylesheet" href="css/styles.css" />
+
+  <!-- ─────────────────────────────────────────────────────────
+       INDEX-ONLY STYLES
+       - Kept in a <style> block so they apply only on this page.
+       - Scoped with .home-grid and .target-box etc.
+       ───────────────────────────────────────────────────────── -->
+  <style>
+    /* PAGE BACKDROP + CONTAINER
+       - Centers the content, constrains width to 1000px.
+       - The .page-wrapper is your site container on this page. */
+    body {
+      margin: 0;
+      background: #000;                       /* dark page backdrop so layout stands out */
+      font-family: system-ui, Arial, sans-serif;
+      color: #111;
+    }
+    .page-wrapper {
+      width: 100%;
+      max-width: 1000px;                      /* overall site width constraint */
+      margin: 0 auto;
+      background: #fff; 
+      border: 1px solid #000000;              /* outer outline to “see” container */
+    }
+
+    /* HEADER (simple demo header) */
+    .site-header,
+    .site-footer {
+      padding: 16px 20px;
+      background: #525252;                    /* light gray backdrop so header stands out */
+      border-bottom: 1px solid #000000;           /* separates header from main */
+      color: #393939;                         /* white text */
+    }
+    .site-footer { border-top: 1px solid #95bdf7; text-align: right;} /* footer top border */
+
+
+    .site-title {
+      font-size: 24px;
+      font-weight: 700;                       /* bold title */
+      color: #ffffff;                            /* white text */
+    }
+
+    .site-title { font-weight: 700; letter-spacing: .4px; }
+
+    /* MAIN LAYOUT: TWO COLUMNS (ASIDE | TARGET)
+       - .home-grid turns <main> into a two-column grid.
+       - Left column fixed 300px; right column fills remaining space.
+       - min-height gives each column enough height to split into 3 rows. */
+    .home-grid {
+      display: grid;
+      grid-template-columns: 300px 1fr;       /* ASIDE (fixed) | TARGET (fluid) */
+      gap: 20px;
+      padding: 20px;
+      min-height: 600px;                      /* 3 rows → ~200px each after gaps/padding */
+      background: #393939;                  /* dark gray backdrop so columns stand out */
+    }
+
+    /* COLUMN GRIDS
+       - Inside each column, make a 3-row grid so rows align perfectly. */
+    .home-grid .aside,
+    .home-grid .target {
+      display: grid;
+      grid-template-rows: repeat(3, 1fr);     /* 3 equal-height rows */
+      gap: 15px;
+      border: 1px solid #000000;              /* visualize columns while learning */
+      padding: 10px;
+      background: #525252;                  /* medium gray backdrop so boxes stand out */
+    }
+
+    /* SIDE TEXT BOXES (left column) */
+    .side-box {
+      background: #95bdf7;                     /* light blue boxes */
+      border: 1px solid #000000;                 /* light gray border */
+      padding: 12px;
+      display: grid;                     /* grid so text aligns nicely */
+      align-content: center;                  /* vertical centering for text */
+      line-height: 1.4;
+    }
+
+    /* TARGET IMAGE BOXES (right column)
+       - Each .target-box is a “stage” that holds a linked image.
+       - The <a> fills the box so the entire box is clickable.
+       - The <img> fills the box without distortion (cropped edges). */
+    .target-box {
+      border: 1px solid #000000;                /* light gray border */
+      background: #eaeaea;                   /* light gray backdrop so image stands out */
+      display: grid;
+      place-items: center;
+      overflow: hidden;                       /* hide overflow from cover */
+    }
+    .target-box a {
+      display: block;                         /* link fills the box */
+      width: 100%;
+      height: 100%;
+      text-decoration: none;                  /* no underline */
+    }
+    .target-box a img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;                      /* fill box without distortion (crop edges) */
+      display: block;                         /* removes inline-image bottom gap */
+      border: 1px solid #000000; 
+    }
+    /* Tip: if you prefer to see the full image, use:
+       .target-box a img { object-fit: contain; background:#000; } */
+
+    /* SIMPLE DEMO NAV (if you expand later, reuse your site’s main nav) */
+    .main-nav { display: flex; gap: 12px; }
+    .main-nav a {
+      text-decoration: none;
+      color: #fff;
+      background: #0b3d91;                    /* blue */
+      padding: 8px 12px;
+      border-radius: 6px;
+      font-weight: 600;
+      transition: background-color .2s ease, color .2s ease;
+    }
+    /* Hover turns orange only for non-active links (index has none marked active here) */
+    .main-nav a:hover {
+      background: #ffbf00;                    /* orange */
+      color: #111;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="page-wrapper">
+    <!-- Simple header just for context (you can swap in your real site header) -->
+    <header class="site-header">
+      <div class="site-title">Daughterverse</div>
+      <nav class="main-nav" aria-label="Primary">
+        <a href="about.html">About | Contact</a>
+        <a href="#">*****</a>
+      </nav>
+    </header>
+
+    <!-- MAIN: two-column grid with stacked boxes on each side -->
+    <main class="home-grid">
+      <!-- LEFT COLUMN (ASIDE): three stacked text boxes -->
+      <aside class="aside" aria-label="Side information">
+        <div class="side-box">
+          <strong>Daughter</strong><br />
+          Sara was always the devoted daughter, until her mother’s midlife crisis shattered the family and threatened her marriage.
+    <br> <br/>
+          How did weekly calls with her mom spiral into infidelity? >>>>>>
+        </div>
+        <div class="side-box">
+          <strong>Model [X]</strong><br />
+          <!--You can put any HTML here: lists, links, or small images. -->
+          Amanda thought Ripley was gone for good, but could one offer cost her everything she's wanted. <br><br/>When does securing your future mean losing it? >>>>>>
+        </div>
+        <div class="side-box">
+          <strong>Project Ciara (KEER-ah)</strong><br />
+        First look at Ciara Riona Quinn. A main character in a new trilogy under development. <br><br /> More details to come. >>>>>>
+          <!--Use this as a quick index, or callouts for the right column. -->
+        </div>
+      </aside>
+
+      <!-- RIGHT COLUMN (TARGET): three stacked, fully clickable image boxes -->
+      <section class="target" aria-label="Featured images">
+        <div class="target-box">
+          <a href="one.html">
+            <img src="img/banner.jpg" alt="Featured image 1" />
+          </a>
+        </div>
+        <div class="target-box">
+          <a href="two.html">
+            <img src="img/bannermodelx.jpg" alt="Featured image 2" />
+          </a>
+        </div>
+        <div class="target-box">
+          <a href="three.html">
+            <img src="img/bannerciara.jpg" alt="Featured image 3" />
+          </a>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer just for context -->
+    <footer class="site-footer">
+      <small>©2025 Joseph Caponsacco. Daughterverse | Model X | Project Ciara.</small>
+    </footer>
+  </div>
+
+
+<!--Begin Below Footer section-->
+<br style="clear: both;">
+<br style="clear: both;">
+<br style="clear: both;">
+<br style="clear: both;">
+
+</body>
+</html>
+ 

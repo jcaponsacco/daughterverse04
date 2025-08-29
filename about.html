@@ -1,0 +1,115 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>About | Contact</title>
+
+  <style>
+            h6 {
+                font-weight: normal; /* Resets the font-weight to normal */
+            }
+
+    .site-title {
+      font-size: 24px;
+      font-weight: 700;                       /* bold title */
+      color: #ffffff;                            /* white text */
+    }
+  </style>
+
+
+  <!-- Site-wide stylesheet (governs layout, nav, grid, boxes) -->
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+
+<body>
+  <div class="page-wrapper">
+
+    <!-- HEADER
+         - .site-header lays out logo/title left, nav right
+         - Active page is set with aria-current="page" -->
+    <header class="site-header">
+      <div class="site-title">Daughterverse</div>
+      <nav class="main-nav" aria-label="Primary">
+        <a href="index.html">Home</a>
+        <a href="one.html">Daughter</a>
+        <a href="two.html">Model [X]</a>
+        <a href="three.html">Project Ciara</a>
+        <a href="about.html" aria-current="page">About | Contact</a> <!-- ✅ active -->
+      </nav>
+    </header>
+
+    <!-- MAIN
+         - .home-grid creates two columns: ASIDE (fixed 300px) | TARGET (fluid)
+         - Each column is a 3-row grid to align rows across -->
+    <main class="home-grid">
+      <!-- LEFT COLUMN (ASIDE): three stacked text boxes -->
+      <aside class="aside" aria-label="About sidebar">
+        <div class="side-box">
+          <strong><h3>About this site</h3></strong>
+          This site was built to practice CSS styling, grid/flex layouts and structure. It has since evolved into a portfolio site for my creative projects.
+        </div>
+        <div class="side-box">
+          <strong><h3>What am I looking at?</h3></strong>
+          The images on this site feature character's from my published series: Daughter, and Model X. While also offering a first look at Project Ciara. 
+        </div>
+        <div class="side-box">
+          <strong><h3>Project Status</h3></strong>
+          The plan is to keep updating the site code and graphics as I grow my skill set.
+        </div>
+      </aside>
+
+      <!-- RIGHT COLUMN (TARGET): three stacked boxes
+           - You can keep images here (like index), or use content sections.
+           - Below shows a contact-focused example that still uses the target-box
+             shell (so your alignment and visuals remain consistent). -->
+      <section class="target" aria-label="About and contact details">
+        
+        <div class="target-box" style="background:#888888; display:grid; place-items:start; padding:16px;">
+          <h3 style="margin:0 0 8px;">Contact</h3>
+          <p style="margin:0; line-height:1.5;">
+            Email: <a href="mailto:you@example.com">talesrekindled@gmail.com
+</a><br />
+            Instagram: <a href="#" target="_blank" rel="noopener">instagram.com/yourname</a>
+          </p>
+        </div>
+
+        <div class="target-box" style="background:#676767; display:grid; place-items:start; padding:16px;">
+          <h3 style="margin:0 0 8px;">Credits</h3>
+          <p style="margin:0; line-height:1.5;">
+            All text, digital, print and web design and execution by <strong>Joseph Caponsacco</strong>.<br />
+                    <a href="https://www.artspace.ai/lifetime?ref=wmnds"> Artspace.AI Link </a>
+<h6>All images and content are original works created by Joseph Caponsacco unless otherwise noted. Tools used include: Affinity Photo, Affinity Publisher, Visual Studio Code, and artspace.ai.</h6>
+
+          </p>
+        </div>
+
+        <div class="target-box" style="background:#676767; display:grid; place-items:start; padding:16px;">
+          <h3 style="margin:0 0 8px;">Copyrights | Disclaimer</h3>
+          <p style="margin:0; line-height:1.5;">
+          <h6>©2025 Joseph Caponsacco. All rights reserved.  
+The Daughterverse, Model [X], Project Ciara and all related characters, storylines, and creative works are the intellectual property of Joseph Caponsacco.  
+No part of this content may be copied, reproduced, distributed, or transmitted in any form or by any means, including digital, electronic, or print, without prior written permission.  
+Unauthorized use is strictly prohibited and may result in legal action.
+</h6>
+          </p>
+        </div>
+
+      </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="site-footer">
+      <small>Daughterverse Site | Version 3.0 | 92025</small>
+    </footer>
+  </div>
+
+
+<!--Begin Below Footer section-->
+<br style="clear: both;">
+<br style="clear: both;">
+
+
+</body>
+</html>

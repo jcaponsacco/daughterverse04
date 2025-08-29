@@ -1,0 +1,61 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Project Ciara</title>
+
+  <!-- Load the gallery stylesheet -->
+  <link rel="stylesheet" href="css/second.css" />
+</head>
+<body>
+  <div class="page-wrapper">
+    <!-- Header + Nav
+         - Exactly ONE link has aria-current="page" (this page = one.html) -->
+    <header class="header">
+      <div class="logo">Project Ciara</div>
+      <nav class="nav" aria-label="Primary">
+        <a href="index.html">Home</a>
+        <a href="one.html">Daughter</a>
+        <a href="two.html">Model [X]</a>
+        <a href="three.html" aria-current="page">Project Ciara</a>  <!-- ✅ active -->
+        <a href="about.html">About | Contact</a>
+      </nav>
+    </header>
+
+    <!-- Main two-column gallery:
+         Left = thumbnails, Right = large viewer -->
+    <main class="gallery">
+      <!-- LEFT: thumbnails (click to swap the big image) -->
+      <aside class="thumbs" aria-label="Thumbnails">
+        <img class="thumb" src="img/ciara01.png" data-full="img/ciara01.png" alt="Image 1" />
+      </aside>
+
+      <!-- RIGHT: big image (constrained by CSS .viewer) -->
+      <section class="viewer" aria-label="Large image viewer">
+        <img id="viewerImage" src="img/dr.png" alt="Large view" />
+      </section>
+    </main>
+
+    <footer class="footer">
+      <small>©2025 Joseph Caponsacco. Daughterverse | Model X | Project Ciara.</small>
+    </footer>
+  </div>
+
+  <!-- Swap the large image when a thumbnail is clicked -->
+  <script>
+    const viewer = document.getElementById('viewerImage');
+    const thumbs = document.querySelectorAll('.thumb');
+
+    thumbs.forEach(t => {
+      t.addEventListener('click', () => {
+        viewer.src = t.dataset.full;     // swap image
+        viewer.alt = t.alt;              // keep alt meaningful
+        thumbs.forEach(x => x.classList.remove('active'));
+        t.classList.add('active');       // optional visual indicator
+      });
+    });
+  </script>
+</body>
+</html>

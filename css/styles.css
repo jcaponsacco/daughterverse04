@@ -1,0 +1,160 @@
+
+/* ===========================================================
+   GLOBAL RESET / BASE
+   -----------------------------------------------------------
+   - Keeps layout predictable across browsers
+   =========================================================== */
+* { box-sizing: border-box; }
+html, body { height: 100%; }
+body {
+  margin: 0;
+  background: #000;                     /* dark backdrop for contrast */
+  color: #111;
+  font-family: system-ui, Arial, sans-serif;
+}
+
+/* ===========================================================
+   PAGE CONTAINER (index.html)
+   -----------------------------------------------------------
+   - Constrains total width and centers the page
+   - Matches your index.html markup (.page-wrapper)
+   =========================================================== */
+.page-wrapper {
+  width: 100%;
+  max-width: 1000px;                    /* overall site/container width */
+  margin: 0 auto;                       /* centered */
+  background: #000000;
+  border: 1px solid #000000;            /* outer outline so you can “see” container */
+}
+
+/* ===========================================================
+   HEADER (simple demo header used on index)
+   -----------------------------------------------------------
+   - If you later reuse your gallery header, keep class names consistent
+   =========================================================== */
+.site-header {
+  display: flex;
+  justify-content: space-between;       /* logo left, nav right */
+  align-items: center;
+  padding: 16px 20px;
+  background: #525252;
+  border-bottom: 1px solid #000000;
+}
+
+.site-title { font-weight: 700; letter-spacing: .4px; }
+
+/* ---------- NAV (index) ----------
+   - Blue buttons by default
+   - Hover turns orange
+   - You can add aria-current="page" to any link later if desired */
+.main-nav { display: flex; gap: 12px; }
+.main-nav a {
+  text-decoration: none;
+  color: #fff;
+  background: #0b3d91;                  /* blue */
+  padding: 8px 14px;
+  border-radius: 6px;
+  font-weight: 600;
+  transition: background-color .2s ease, color .2s ease;
+}
+/* Hover behavior (index): blue → orange */
+.main-nav a:hover {
+  background: #ffbf00;                  /* orange on hover */
+  color: #111;
+}
+
+
+/* ===========================================================
+   MAIN LAYOUT: TWO COLUMNS (ASIDE | TARGET)
+   -----------------------------------------------------------
+   - Left column fixed 300px
+   - Right column fills remaining space
+   - Enough height to split both columns into 3 equal rows
+   =========================================================== */
+.home-grid {
+  display: grid;
+  grid-template-columns: 300px 1fr;     /* ASIDE (fixed) | TARGET (fluid) */
+  gap: 20px;
+  padding: 20px;
+  min-height: 600px;                    /* ~200px per row after gaps/padding */
+  background: #393939;
+}
+
+/* Make each column a 3-row grid so rows align perfectly */
+.home-grid .aside,
+.home-grid .target {
+  display: grid;
+  grid-template-rows: repeat(3, 1fr);   /* three equal-height rows */
+  gap: 15px;
+  border: 1px solid #000000;            /* visualize columns while learning */
+  padding: 10px;
+  background: #525252;
+}
+
+/* ===========================================================
+   LEFT COLUMN: TEXT BOXES
+   =========================================================== */
+.side-box {
+  background: #95bdf7;
+  border: 1px solid #000000;
+  padding: 12px;
+  display: grid;
+  align-content: center;  /* vertical centering for text */
+  line-height: 1.4; /* better readability */
+  font-size: 14px;        /* controls text size */
+
+}
+
+/* ===========================================================
+   RIGHT COLUMN: IMAGE BOXES (FULL-BOX LINKS)
+   -----------------------------------------------------------
+   - Each .target-box is clickable (link fills the box)
+   - Boxes have a fixed height (do NOT grow)
+   - Images fit inside without stretching the box
+   =========================================================== */
+.target-box {
+  border: 1px solid #000000;
+  background: #eaeaea;
+  display: grid;
+  place-items: center;                  /* center small images if needed */
+  overflow: hidden;                     /* hide any stray edges */
+  height: 200px;                        /* fixed height per row */
+}
+
+/* Link fills the entire box, making the whole box clickable */
+.target-box a {
+  display: block;
+  width: 100%;
+  height: 100%;
+  text-decoration: none;
+}
+
+/* Images stay within the box; do not force the box to grow */
+.target-box a img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;                   /* keep entire image visible, no cropping */
+  display: block;                        /* remove inline gap under images */
+  border: 1px solid #cfcfcf;             /* subtle inner border */
+}
+
+/* ===========================================================
+   FOOTER (simple demo)
+   =========================================================== */
+.site-footer {
+  padding: 16px 20px;
+  background: #000000;
+  border-top: 1px solid #000000;
+  text-align: right;
+  color: #525252;                       /* light gray text */
+}
+
+/* ===========================================================
+   OPTIONAL: VISUAL OUTLINES (learning aid)
+   - Toggle this on/off as you learn.
+   =========================================================== */
+/*
+.site-header, .home-grid, .aside, .target, .site-footer {
+  outline: 1px dashed #d3d3d3;
+}
+*/
